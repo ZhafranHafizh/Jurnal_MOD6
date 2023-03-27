@@ -18,7 +18,7 @@ namespace JurnalMOD6_1302210036
             Username = username;
             Random random = new Random();
             this.id = random.Next(9999, 99999);
-            List<SayaTubeUser> uploadVideos = new List<SayaTubeUser>();
+            uploadedVideos = new List<SayaTubeVideo>();
 
         }
         public int GetTotalVideoPlayCount()
