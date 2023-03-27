@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,21 @@ namespace JurnalMOD6_1302210036
                 tot = tot + uploadedVideos[i].getPlayCount();
             }
             return tot;
+        }
+
+        public void AddVideo(SayaTubeVideo video)
+        {
+            Contract.Requires(video != null);
+            Contract.Requires(video.getPlayCount() < int.MaxValue);
+            uploadedVideos.Add(video);
+        }
+        public void PrintAllVideoPlaycount()
+        {
+            Console.WriteLine("user " + Username);
+            for (int i = 0; i < uploadedVideos.Count; i++)
+            {
+                Console.WriteLine("Video " + (i + 1) + " Judul " + uploadedVideos[i]);
+            }
         }
     }
 }
